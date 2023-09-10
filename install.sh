@@ -9,3 +9,6 @@ function git-home {
 }
 
 git-home checkout .
+
+# Install plugins
+nvim +PlugInstall +PlugUpdate +qall
