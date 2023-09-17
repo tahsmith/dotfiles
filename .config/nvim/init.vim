@@ -10,7 +10,8 @@ call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright']
 
-
+" Long timeout helps with mobile
+set timeoutlen=5000
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
