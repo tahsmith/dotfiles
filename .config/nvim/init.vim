@@ -8,7 +8,7 @@ Plug 'github/copilot.vim', {'branch': 'release'}
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright', 'coc-deno']
 
 " Long timeout helps with mobile
 set timeoutlen=5000
