@@ -217,7 +217,15 @@ require('lazy').setup({
     },
     build = ':TSUpdate'
   },
-
+  {
+    'rmagatti/auto-session',
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      }
+    end
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -495,6 +503,8 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+
+  ruff_lsp = {}
 }
 
 -- Setup neovim lua configuration
