@@ -103,7 +103,7 @@ require('lazy').setup({
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
-
+      'hrsh7th/cmp-nvim-lsp-signature-help',
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
