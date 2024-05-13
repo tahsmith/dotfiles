@@ -108,5 +108,14 @@ PROMPT='
 
 VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 export VISUAL
+alias gs="git status"
+alias gc="git commit"
 alias grx="git pull"
 alias gtx="git push"
+alias gd="git diff"
+alias gtxf="git push --force"
+alias gsmfe="git submodule foreach"
+alias p="python"
+alias i="ipython"
+alias e="nvr"
+
