@@ -582,11 +582,13 @@ cmp.setup {
 
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
 vim.keymap.set('t', '<C-v><Esc>', '<Esc>', {noremap = true})
-
+vim.keymap.set('n', '<Tab>', ':')
 vim.api.nvim_command("autocmd TermOpen * startinsert")             -- starts in insert mode
 
 vim.api.nvim_command("autocmd TermOpen * setlocal nonumber")       -- no numbers
 vim.api.nvim_command("autocmd TermEnter * setlocal signcolumn=no") -- no sign column
+
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
