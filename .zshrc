@@ -106,3 +106,5 @@ PROMPT='
 %{$fg_bold[white]%}%~%{$fg_bold[blue]%}%{$fg_bold[blue]%} % %{$reset_color%}
 %{$fg[green]%}➞  %{$reset_color%}'
 
+VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+export VISUAL
