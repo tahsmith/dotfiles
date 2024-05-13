@@ -108,3 +108,5 @@ PROMPT='
 
 VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 export VISUAL
+alias grx="git pull"
+alias gtx="git push"

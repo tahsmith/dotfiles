@@ -331,7 +331,10 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sf', function()
+    require('telescope.builtin').find_files({ hidden = true })
+  end,
+  { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
@@ -340,7 +343,9 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.keymap.set(
   "n",
   "<leader>fb",
-  require("telescope").extensions.file_browser.file_browser,
+  function()
+    require("telescope").extensions.file_browser.file_browser({hidden = true})
+  end,
   { desc = '[File] [B]rowser' }
 )
 
@@ -580,15 +585,13 @@ cmp.setup {
   },
 }
 
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
-vim.keymap.set('t', '<C-v><Esc>', '<Esc>', {noremap = true})
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+vim.keymap.set('t', '<C-v><Esc>', '<Esc>', { noremap = true })
 vim.keymap.set('n', '<Tab>', ':')
 vim.api.nvim_command("autocmd TermOpen * startinsert")             -- starts in insert mode
 
 vim.api.nvim_command("autocmd TermOpen * setlocal nonumber")       -- no numbers
 vim.api.nvim_command("autocmd TermEnter * setlocal signcolumn=no") -- no sign column
-
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
