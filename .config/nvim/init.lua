@@ -249,7 +249,7 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.number = false
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -312,6 +312,9 @@ require('telescope').setup {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
+      n = {
+      ['dd'] = require('telescope.actions').delete_buffer,
+      }
     },
   },
 }
@@ -592,6 +595,8 @@ vim.api.nvim_command("autocmd TermOpen * startinsert")             -- starts in 
 
 vim.api.nvim_command("autocmd TermOpen * setlocal nonumber")       -- no numbers
 vim.api.nvim_command("autocmd TermEnter * setlocal signcolumn=no") -- no sign column
+
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
