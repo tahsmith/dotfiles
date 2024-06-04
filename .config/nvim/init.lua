@@ -226,6 +226,9 @@ require('lazy').setup({
       }
     end
   },
+  {
+    'tpope/vim-surround'
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -239,6 +242,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'custom.plugins' },
+  { 'ionide/Ionide-vim' }
 }, {})
 
 -- [[ Setting options ]]
@@ -313,10 +317,14 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
       n = {
-      ['dd'] = require('telescope.actions').delete_buffer,
+        ['dd'] = require('telescope.actions').delete_buffer,
       }
     },
-  },
+  }, pickers = {
+  buffers = {
+    ignore_current_buffer = true,
+    sort_lastused = true,
+  } }
 }
 
 -- Enable telescope fzf native, if installed
@@ -347,7 +355,7 @@ vim.keymap.set(
   "n",
   "<leader>fb",
   function()
-    require("telescope").extensions.file_browser.file_browser({hidden = true})
+    require("telescope").extensions.file_browser.file_browser({ hidden = true })
   end,
   { desc = '[File] [B]rowser' }
 )
@@ -591,10 +599,6 @@ cmp.setup {
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 vim.keymap.set('t', '<C-v><Esc>', '<Esc>', { noremap = true })
 vim.keymap.set('n', '<Tab>', ':')
-vim.api.nvim_command("autocmd TermOpen * startinsert")             -- starts in insert mode
-
-vim.api.nvim_command("autocmd TermOpen * setlocal nonumber")       -- no numbers
-vim.api.nvim_command("autocmd TermEnter * setlocal signcolumn=no") -- no sign column
 
 
 

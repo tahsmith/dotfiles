@@ -110,6 +110,7 @@ VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 export VISUAL
 alias gs="git status"
 alias gc="git commit"
+alias gx="git checkout"
 alias grx="git pull"
 alias gtx="git push"
 alias gd="git diff"
@@ -119,3 +120,4 @@ alias p="python"
 alias i="ipython"
 alias e="nvr"
 
+export PATH=$PATH:$HOME/.dotnet/tools
