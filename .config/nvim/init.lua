@@ -494,7 +494,8 @@ require('which-key').register {
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
-require('mason-lspconfig').setup()
+require('mason-lspconfig').setup({
+  automatic_installation = true })
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -600,7 +601,19 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 vim.keymap.set('t', '<C-v><Esc>', '<Esc>', { noremap = true })
 vim.keymap.set('n', '<Tab>', ':')
 
+-- Define a custom command that installs all Mason.nvim tools
 
+vim.api.nvim_create_user_command('MasonInstallAll', function()
+  vim.print("installing all plugins")
+  require("mason")
+  vim.print("servers " .. tostring(servers))
+  local lspconfig_to_package = require("mason-lspconfig.mappings.server").lspconfig_to_package
+  for index, value in pairs(servers) do
+    local package = lspconfig_to_package[index]
+    vim.print("installing " .. index)
+    vim.cmd("MasonInstall " .. package)
+  end
+end, {})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

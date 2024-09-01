@@ -10,3 +10,4 @@ popd
 
 # Install plugins
 nvim --headless "+Lazy! sync" +qa
+nvim --headless +"MasonInstallAll" +qa
